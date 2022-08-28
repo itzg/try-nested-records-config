@@ -9,13 +9,24 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class DefaultProfileTests {
     @Autowired
-    AppProperties appProperties;
+    ViaRecordProperties viaRecordProperties;
+
+    @Autowired
+    ViaClassProperties viaClassProperties;
 
     @Test
-    void contextLoads() {
-        assertThat(appProperties.nested())
+    void viaRecord() {
+        assertThat(viaRecordProperties.nested())
             .isNotNull();
-        assertThat(appProperties.nested().status())
+        assertThat(viaRecordProperties.nested().status())
+            .isEqualTo("default");
+    }
+
+    @Test
+    void viaClass() {
+        assertThat(viaClassProperties.getNested())
+            .isNotNull();
+        assertThat(viaClassProperties.getNested().getStatus())
             .isEqualTo("default");
     }
 

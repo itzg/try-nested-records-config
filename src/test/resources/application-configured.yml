@@ -1,0 +1,6 @@
+via-record:
+  nested:
+    status: configured
+via-class:
+  nested:
+    status: configured
